@@ -712,7 +712,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="painel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -754,6 +754,11 @@
                           </Group>
                           <EmptySpace pref="307" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="InserirSalvar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="440" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -780,7 +785,9 @@
                               <Component id="inserirsenha" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="inserirconfirmaçaodesenha" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="551" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="InserirSalvar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="516" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -833,6 +840,14 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Concordo com os termos de uso"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="InserirSalvar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Salvar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InserirSalvarActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

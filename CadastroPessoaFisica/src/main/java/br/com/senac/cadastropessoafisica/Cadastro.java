@@ -91,6 +91,7 @@ public class Cadastro extends javax.swing.JFrame {
         InserirEmail = new javax.swing.JTextField();
         Inserirusuario = new javax.swing.JTextField();
         tm = new javax.swing.JCheckBox();
+        InserirSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -494,6 +495,13 @@ public class Cadastro extends javax.swing.JFrame {
         tm.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         tm.setText("Concordo com os termos de uso");
 
+        InserirSalvar.setText("Salvar");
+        InserirSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirSalvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
         painelLayout.setHorizontalGroup(
@@ -515,6 +523,10 @@ public class Cadastro extends javax.swing.JFrame {
                         .addComponent(tm))
                     .addComponent(inserirconfirmaçaodesenha, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(307, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(InserirSalvar)
+                .addGap(440, 440, 440))
         );
         painelLayout.setVerticalGroup(
             painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +548,9 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inserirsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inserirconfirmaçaodesenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InserirSalvar)
+                .addContainerGap(516, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -546,7 +560,7 @@ public class Cadastro extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,6 +586,64 @@ public class Cadastro extends javax.swing.JFrame {
     private void InserirEndereço3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirEndereço3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InserirEndereço3ActionPerformed
+
+    private void InserirSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirSalvarActionPerformed
+ String codigo = jTextField1.getText();
+String nomeCompleto = nomeInserido1.getText();
+String contato = nomeInserido.getText();
+boolean ativo = jCheckBox1.isSelected();
+
+String cpf = inserirCPF.getText();
+String dataNascimento = InserirDataDeNascimento.getText();
+String identidade = InserirIndentidade.getText();
+String cnpj = InserirCnpj.getText();
+String inscricaoEstadual = inseririnscricao.getText();
+
+String end = InserirEndereço.getText();
+String numero = InserirEndereço1.getText();
+String complemento = InserirEndereço2.getText();
+String cep = InserirEndereço3.getText();
+String bairro = InserirEndereço4.getText();
+String cidadeValor = jTextField2.getText();
+String estado = jComboBox1.getSelectedItem().toString();
+
+String sexo;
+
+if (Feminino.isSelected()) {
+    sexo = "Feminino";
+} else if (Masculino.isSelected()) {
+    sexo = "Masculino";
+} else {
+    sexo = "Prefiro não informar";
+}
+
+String telefone = inserirTelefone.getText();
+String fax = InserirFax.getText();
+String celular = inserirCelular.getText();
+String email = inserirEmail.getText();
+
+String preferencia = jComboBox2.getSelectedItem().toString();
+String observacoes = jTextArea1.getText();
+
+String usuario = Inserirusuario.getText();
+String senha = new String(inserirsenha.getPassword());
+String confirmarSenha =
+        new String(inserirconfirmaçaodesenha.getPassword());
+
+boolean aceitaTermos = tm.isSelected();
+
+CadastroPessoaFisica pessoa = new CadastroPessoaFisica(
+    codigo, nomeCompleto, contato, ativo,
+    cpf, dataNascimento, identidade, cnpj, inscricaoEstadual,
+    end, numero, complemento, cep, bairro, cidadeValor, estado,
+    sexo, telefone, fax, celular, email, preferencia, observacoes,
+    usuario, senha, confirmarSenha, aceitaTermos
+);
+
+javax.swing.JOptionPane.showMessageDialog(
+    this, "Objeto PessoaFisica criado com sucesso!"
+);
+    }//GEN-LAST:event_InserirSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -630,6 +702,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JTextField InserirEndereço4;
     private javax.swing.JTextField InserirFax;
     private javax.swing.JTextField InserirIndentidade;
+    private javax.swing.JButton InserirSalvar;
     private javax.swing.JTextField Inserirusuario;
     private javax.swing.JRadioButton Masculino;
     private javax.swing.JLabel Nome;
